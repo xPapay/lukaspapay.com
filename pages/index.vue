@@ -12,7 +12,7 @@
               Sketching, styling, coding, testing, deploying... all the things I can do. I'm fullstack.
             </p>
             <div class="text-center">
-              <img class="circle-picture" src="http://i.pravatar.cc/96" alt="profile picture">
+              <img class="circle-picture" src="/avatar.png" alt="profile picture">
             </div>
           </div>
           <cta-button :to="{name: 'showcase-project', params: {project: 'wanderermap'}}" class="self-center margin-vertical-l">

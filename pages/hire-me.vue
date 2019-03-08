@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="col col-right">
-        <img src="/hero.png" alt="hero image">
+        <img src="/hire-me.png" alt="hero image">
       </div>
     </div>
     <div class="row">
@@ -28,7 +28,7 @@
         <div class="col__content">
           <reveal-more>
             <template v-slot:trigger>
-              <h2>My stack</h2>
+              <h2>My skills</h2>
             </template>
             <ul class="flex flex-wrap skills-list flex-space-between">
               <li>

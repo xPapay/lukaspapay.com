@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="col col-right">
-      <img src="/hero.png" alt="hero image">
+      <img src="/contact.png" alt="hero image">
     </div>
   </div>
 </template>
