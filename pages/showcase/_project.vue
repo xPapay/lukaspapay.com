@@ -26,7 +26,7 @@
       </div>
     </div>
     <figure v-if="project.preview_path" class="col col-right figure">
-      <img :src="project.preview_path" alt="Project preview image">
+      <img :src="previewImageUrl" alt="Project preview image">
       <figcaption class="figcaption">
         {{ projectCaption }}
       </figcaption>
@@ -45,8 +45,30 @@ export default {
     CtaButton,
     DotPagination
   },
-  validate({ params }) {
-    return !!params.project
+  head() {
+    const title = `Showcase | ${this.project.headline}`
+    const description = this.project.subheadline
+    return {
+      title,
+      meta: [
+        {
+          name: 'description',
+          content: description
+        },
+        {
+          property: 'og:title',
+          content: title
+        },
+        {
+          property: 'og:image',
+          content: process.env.BASE_URL + this.previewImageUrl
+        },
+        {
+          property: 'og:description',
+          content: description
+        }
+      ]
+    }
   },
   data() {
     return {
@@ -63,7 +85,7 @@ export default {
         taskmanagement: {
           headline: 'Task management',
           subheadline:
-            'This app was built for wood-crafting company to help with planning tasks',
+            "This app was built for medium-size wood-crafting company to help them with planning tasks. Check it out, I've prepared you a demo.",
           logo_path: '',
           preview_path: '/taskmanagement.png',
           url: 'http://demo.lukaspapay.com',
@@ -84,6 +106,9 @@ export default {
         name: 'showcase-project',
         params: { project: projectName }
       }))
+    },
+    previewImageUrl() {
+      return this.project.preview_path
     }
   }
 }

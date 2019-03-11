@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="col col-right">
-        <img src="/hire-me.png" alt="hero image">
+        <img :src="heroUrl" alt="hero image">
       </div>
     </div>
     <div class="row">
@@ -91,6 +91,37 @@ export default {
     CtaButton,
     ProgressBar,
     RevealMore
+  },
+  head() {
+    const title = 'Hire Me'
+    const description =
+      'Do you need landing page, blog, Single Page App or even web app working offline? I have it fully covered both front and back end. I have benihd my belt Laravel and Vue and TDD is watching my back.'
+    return {
+      title,
+      meta: [
+        {
+          name: 'description',
+          content: description
+        },
+        {
+          property: 'og:title',
+          content: title
+        },
+        {
+          property: 'og:image',
+          content: process.env.BASE_URL + this.heroUrl
+        },
+        {
+          property: 'og:description',
+          content: description
+        }
+      ]
+    }
+  },
+  computed: {
+    heroUrl() {
+      return '/hire-me.png'
+    }
   }
 }
 </script>

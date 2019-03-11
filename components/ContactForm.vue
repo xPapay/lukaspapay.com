@@ -1,5 +1,5 @@
 <template>
-  <form method="POST" action="https://formsubmit.io/send/a7dcacbb-fed1-40f9-a583-c330fe4e2d46" @submit.prevent="submit">
+  <form method="POST" @submit.prevent="submit">
     <input v-model="email" type="email" placeholder="Your email" class="input">
     <textarea v-model="message" placeholder="Your message..." class="textarea" rows="5" />
     <input name="_formsubmit_id" type="text" style="display:none">
@@ -13,7 +13,7 @@
 
 <script>
 import CtaButton from '@/components/CtaButton.vue'
-// import axios from 'axios'
+import axios from 'axios'
 
 export default {
   components: {
@@ -29,16 +29,18 @@ export default {
 
   methods: {
     submit() {
-      // TODO: point it to my form submission url
-      // const url = 'https://goo.gl/forms/YNVPJ9uLDmvgM6Rg1'
+      const url = 'https://services.lukaspapay.com/email-formsubmission'
       const { email, message } = this
-      // axios
-      //   .post(url, { email, message })
-      //   .then(() => {
-      //     this.resetFormInputs()
-      //   })
-      //   .catch(error => console.error(error))
-      this.$emit('submit', { email, message })
+      axios
+        .post(url, {
+          data: { email, message },
+          options: { subject: "Let's work together", replyTo: email }
+        })
+        .then(() => {
+          this.$emit('submit', { email, message })
+          this.resetFormInputs()
+        })
+        .catch(error => console.error(error))
     },
     resetFormInputs() {
       this.email = ''

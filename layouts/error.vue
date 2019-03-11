@@ -23,6 +23,11 @@ export default {
       type: Object,
       default: null
     }
+  },
+  head() {
+    return {
+      title: 'Page Not Found | 404'
+    }
   }
 }
 </script>

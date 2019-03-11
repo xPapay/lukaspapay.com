@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="col col-right">
-      <img src="/hero.png" alt="hero image">
+      <img :src="heroUrl" alt="hero image">
     </div>
   </div>
 </template>
@@ -35,6 +35,37 @@ export default {
   components: {
     TheNavigation,
     CtaButton
+  },
+  head() {
+    const title = 'Lukas Papay | Webdeveloper'
+    const description =
+      "I'm the guy who build websites. From initial sketch to fully working web app. I favor simplicity over complexity."
+    return {
+      title,
+      meta: [
+        {
+          name: 'description',
+          content: description
+        },
+        {
+          property: 'og:title',
+          content: title
+        },
+        {
+          property: 'og:image',
+          content: process.env.BASE_URL + this.heroUrl
+        },
+        {
+          property: 'og:description',
+          content: description
+        }
+      ]
+    }
+  },
+  computed: {
+    heroUrl() {
+      return '/hero.png'
+    }
   }
 }
 </script>

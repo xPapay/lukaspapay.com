@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="col col-right">
-      <img src="/contact.png" alt="hero image">
+      <img :src="heroUrl" alt="hero image">
     </div>
   </div>
 </template>
@@ -36,6 +36,37 @@ export default {
   data() {
     return {
       submitted: false
+    }
+  },
+  head() {
+    const title = 'Contact'
+    const description =
+      "Any idea how to employ me? Cool. Email me or send me a message via contact form and let's work together."
+    return {
+      title,
+      meta: [
+        {
+          name: 'description',
+          content: description
+        },
+        {
+          property: 'og:title',
+          content: title
+        },
+        {
+          property: 'og:image',
+          content: process.env.BASE_URL + this.heroUrl
+        },
+        {
+          property: 'og:description',
+          content: description
+        }
+      ]
+    }
+  },
+  computed: {
+    heroUrl() {
+      return '/contact.png'
     }
   }
 }
