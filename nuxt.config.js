@@ -3,6 +3,10 @@ const pkg = require('./package')
 module.exports = {
   mode: 'universal',
 
+  generate: {
+    routes: ['/showcase/wanderermap', '/showcase/taskmanagement']
+  },
+
   /*
   ** Headers of the page
   */
