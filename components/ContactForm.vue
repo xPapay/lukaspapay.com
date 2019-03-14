@@ -1,7 +1,7 @@
 <template>
   <form method="POST" @submit.prevent="submit">
-    <input v-model="email" type="email" placeholder="Your email" class="input">
-    <textarea v-model="message" placeholder="Your message..." class="textarea" rows="5" />
+    <input v-model="email" type="email" placeholder="Your email" class="input" required>
+    <textarea v-model="message" placeholder="Your message..." class="textarea" rows="5" required />
     <input name="_formsubmit_id" type="text" style="display:none">
     <div class="text-right">
       <cta-button>
@@ -29,7 +29,7 @@ export default {
 
   methods: {
     submit() {
-      const url = 'https://services.lukaspapay.com/email-formsubmission'
+      const url = 'http://localhost:8000/email-formsubmission'
       const { email, message } = this
       axios
         .post(url, {
@@ -40,7 +40,7 @@ export default {
           this.$emit('submit', { email, message })
           this.resetFormInputs()
         })
-        .catch(error => console.error(error))
+        .catch(({ response }) => console.log(response))
     },
     resetFormInputs() {
       this.email = ''
