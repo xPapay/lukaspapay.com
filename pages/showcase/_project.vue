@@ -79,7 +79,7 @@ export default {
             'The most comprehensive map of public showers on internet helping travelers to arrive fresh to their destinations.',
           logo_path: '',
           preview_path: '/wanderermap.png',
-          url: 'http://www.wanderermap.com',
+          url: 'https://www.wanderermap.com',
           stack: 'Node.js (Express.js), MongoDB, React'
         },
         taskmanagement: {
@@ -88,7 +88,7 @@ export default {
             "This app was built for medium-size wood-crafting company to help them with planning tasks. Check it out, I've prepared you a demo.",
           logo_path: '',
           preview_path: '/taskmanagement.png',
-          url: 'http://demo.lukaspapay.com',
+          url: 'http://taskmanagement.lukaspapay.com',
           stack: 'Laravel, MySQL, Vue.js'
         }
       }
