@@ -4,9 +4,7 @@
     <textarea v-model="message" placeholder="Your message..." class="textarea" rows="5" required />
     <input name="_formsubmit_id" type="text" style="display:none">
     <div class="text-right">
-      <cta-button>
-        Send
-      </cta-button>
+      <cta-button :disabled="sending" v-text="sending ? 'Sending...' : 'Send'" />
     </div>
   </form>
 </template>
@@ -22,6 +20,7 @@ export default {
 
   data() {
     return {
+      sending: false,
       email: '',
       message: ''
     }
@@ -31,6 +30,7 @@ export default {
     submit() {
       const url = 'https://services.lukaspapay.com/email-formsubmission'
       const { email, message } = this
+      this.sending = true
       axios
         .post(url, {
           data: { email, message },

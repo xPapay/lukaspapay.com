@@ -31,11 +31,13 @@ export default {
 </script>
 
 
-<style scoped>
+<style scoped lang="scss">
+$background: #045cb8;
+
 .button {
   text-align: center;
   font-size: 0.9rem;
-  background-color: #045cb8;
+  background-color: $background;
   color: white;
   border: none;
   padding: 18px;
@@ -48,5 +50,11 @@ export default {
 
 .button:hover {
   box-shadow: none;
+}
+
+.button:disabled {
+  cursor: initial;
+  box-shadow: none;
+  background: lighten($background, 30%);
 }
 </style>
