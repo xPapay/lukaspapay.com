@@ -29,7 +29,7 @@ export default {
 
   methods: {
     submit() {
-      const url = 'https://lukaspapay.com/email-formsubmission'
+      const url = 'https://services.lukaspapay.com/email-formsubmission'
       const { email, message } = this
       axios
         .post(url, {
